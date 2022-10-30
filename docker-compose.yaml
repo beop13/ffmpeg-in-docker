@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  deb_with_ffmpeg:
+    image: ffmpeg
+    build: .
+    volumes: 
+      - ./Downloads:/home/Downloads
+      - ./list_to_download.csv:/app/list_to_download.csv
+    command: "/app/scripts/process-list.sh /app/list_to_download.csv"
+    # command: "sleep 1000"
